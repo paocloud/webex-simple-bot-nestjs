@@ -1,0 +1,90 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: line-bot
+  labels:
+    app: line-bot
+    environment: production
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: line-bot
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: line-bot
+        tier: backend
+    spec:
+      volumes:
+        - name: tz-bangkok
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Bangkok
+      containers:
+        - name: line-bot
+          image: 'asia.gcr.io/our-cursor-219403/linebot-nestjs:v2.1.1'
+          ports:
+            - name: line-bot
+              containerPort: 5000
+              protocol: TCP
+          env:
+            - name: PORT
+              value: '5000'
+            - name: STAGE
+              value: production
+            - name: LINE_CHANNEL_ACCESS_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: linebot-secret
+                  key: line_channel_access_secret
+            - name: LINE_SECRET
+              valueFrom:
+                secretKeyRef:
+                    name: linebot-secret
+                    key: line_secret
+            - name: MQTT_SERVER
+              value: '192.168.241.111'
+            - name: MQTT_PORT
+              value: '1883'
+            - name: MQTT_USERNAME
+              value: line-bot
+            - name: MQTT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                    name: linebot-secret
+                    key: mqtt_password
+            - name: MQTT_CLIENT_ID
+              value: paocloud-line-bot- 
+          resources: {}
+          volumeMounts:
+            - name: tz-bangkok
+              mountPath: /etc/localtime
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+              scheme: HTTP
+            initialDelaySeconds: 3
+            timeoutSeconds: 1
+            periodSeconds: 600
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+              scheme: HTTP
+            initialDelaySeconds: 3
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: gcr-json-key
