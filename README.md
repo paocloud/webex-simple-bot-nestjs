@@ -38,11 +38,9 @@ For secret , i recommend to set up it for better security, your secret should fo
 - Go to resources , click action select create resource type "webhook" for resource name and enable api gateway cors.
 - On the resource "webhook" click action select "creat methods" select "POST" type.
 - Go to method request select http proxy and type "http://<your-aws-ec2-instance-public-ip>:9000/webhook" and save this config.
-![Method request config to origin server]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/1.png)
+![Method request config to origin server](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/1.png)
 - Go to method request and add "x-spark-signature" for pass this header into webhook server in "http request header config" and select required.
-![Method request setting for http request header]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/2.png)
+![Method request setting for http request header](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/2.png)
 - Click action and select deploy API , select stage name (if you not have stage you can create new stage) and click deploy for save all api gateway config.
 
 3. Set up custom domain name for api gateway
@@ -53,14 +51,11 @@ For secret , i recommend to set up it for better security, your secret should fo
 - Select endpoint type , i suggest edge optimize type.
 - Select certificate.
 - Click create domain name
-![Custom domain api endpoint]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/3.png)
+![Custom domain api endpoint](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/3.png)
 - Click your endpoint and map domain name with your stage
-![api mapping with custom domain name]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/5.png)
+![api mapping with custom domain name](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/5.png)
 - Go to dns management for your domain and add cname record and point to api gateway endpoint from api gateway
-![api gateway domain name]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/4.png)
+![api gateway domain name](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/4.png)
 
 ## Deploy simple code
 - Clone this project by command "git clone https://github.com/paocloud/webex-simple-bot-nestjs.git"
@@ -69,8 +64,7 @@ For secret , i recommend to set up it for better security, your secret should fo
 - Edit .env file for TOKEN and SECRET value.
 - Run this project by using this command "npm run start:dev"
 - You should to see startup message "Webex Bot by NestJS Server running at port 9000"
-![startup message]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/6.png)
+![startup message](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/6.png)
 
 ## Try to play with bot
 - Open Cisco Webex Team, log in to system if need.
@@ -78,8 +72,7 @@ For secret , i recommend to set up it for better security, your secret should fo
 - Type "hello" and mention with "@<your-botname>"
 - Your should to see responce message.
 - Have a fun with Webex bot !!
-![webex team]
-(https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/7.png)
+![webex team](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/7.png)
 
 
 
