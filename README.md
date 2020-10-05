@@ -58,8 +58,9 @@ For secret , i recommend to set up it for better security, your secret should fo
 ![api gateway domain name](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/4.png)
 
 ## Deploy simple code
+- Secure Shell to AWS EC2 instance, you can follow this link for how to connect : https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 - Clone this project by command "git clone https://github.com/paocloud/webex-simple-bot-nestjs.git"
-- Install node.js if you not aready installed.
+- Install [node.js](https://nodejs.org/en/) if you not aready installed.
 - Use linux command "cd <project_directory>" and type "npm install" for install necessary dependencies.
 - Edit .env file for TOKEN and SECRET value.
 - Run this project by using this command "npm run start:dev"
