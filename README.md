@@ -1,6 +1,6 @@
 # Simple Webex bot by Nest.JS
 
-For this project i wiil show you how to start webex bot (develop by Nest.JS framework, coding with Type Script) and use AWS EC2 for running webhook server , AWS API Gateway for enable HTTPS and set up custom domain for webhook endpoint.
+For this project i wiil show you how to start webex bot (develop by [Nest.JS](https://nestjs.com) framework, coding with [Type Script](https://www.typescriptlang.org)) and use [AWS EC2](https://aws.amazon.com/ec2/) for running webhook server , [AWS API Gateway](https://aws.amazon.com/api-gateway/) for enable HTTPS and set up custom domain for webhook endpoint.
 
 
 # Preparing
@@ -73,7 +73,6 @@ For secret , i recommend to set up it for better security, your secret should fo
 - Your should to see responce message.
 - Have a fun with Webex bot !!
 ![webex team](https://statics.paocloud.co.th/webex-simple-bot-cisco-devnet/7.png)
-
 
 
 ## Reference
