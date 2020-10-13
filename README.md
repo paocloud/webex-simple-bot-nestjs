@@ -5,7 +5,7 @@
 For this project i wiil show you how to start webex bot (develop by [Nest.JS](https://nestjs.com) framework, coding with [Type Script](https://www.typescriptlang.org)) and use [AWS EC2](https://aws.amazon.com/ec2/) for running webhook server , [AWS API Gateway](https://aws.amazon.com/api-gateway/) for enable HTTPS and set up custom domain for webhook endpoint.
 
 
-# Preparing
+## Preparing
 
 1. We need to have a client. To download the client, follow to the link: https://www.webex.com/downloads.html and click the download button for the Webex Teams client. Alternatively you can use the web browser client which can be found at: https://teams.webex.com.
 2. Then for creating the bot. We must mention To create the bot and obtain its access token, navigate to the My Apps page of your account https://developer.webex.com/my-apps select Create New App and when prompted choose the Bot type then complete the form which asks for Username / Bot Name, Bot Icon and a short description. Once submitted, you will then be given the access token.
