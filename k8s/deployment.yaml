@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: line-bot
+  name: webex-simple-bot
   labels:
-    app: line-bot
+    app: webex-simple-bot
     environment: production
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: line-bot
+      app: webex-simple-bot
       tier: backend
   template:
     metadata:
       labels:
-        app: line-bot
+        app: webex-simple-bot
         tier: backend
     spec:
       volumes:
@@ -22,10 +22,10 @@ spec:
           hostPath:
             path: /usr/share/zoneinfo/Asia/Bangkok
       containers:
-        - name: line-bot
-          image: 'asia.gcr.io/our-cursor-219403/linebot-nestjs:v2.1.1'
+        - name: webex-simple-bot
+          image: '<your-repository-image-url>'
           ports:
-            - name: line-bot
+            - name: webex-simple-bot
               containerPort: 5000
               protocol: TCP
           env:
